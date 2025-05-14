@@ -49,13 +49,13 @@ _spi_disable (SPI_HandleTypeDef *spiHandle)
 static float
 _code_to_resistance (uint8_t code)
 {
-    return R_FS + (float)(FSV - code) * STEP_RESISTANCE;
+    return MCP_R_FS + (float)(MCP_FSV - code) * MCP_STEP_RESISTANCE;
 }
 
 static uint8_t
 _resistance_to_code (float resistance)
 {
-    return FSV - (uint8_t)((resistance - R_FS) / STEP_RESISTANCE);
+    return MCP_FSV - (uint8_t)((resistance - MCP_R_FS) / MCP_STEP_RESISTANCE);
 }
 
 HAL_StatusTypeDef

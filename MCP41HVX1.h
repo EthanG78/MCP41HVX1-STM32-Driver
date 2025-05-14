@@ -18,10 +18,11 @@
 //  or codeword of the digipot. Here we assume that
 //  Rfs = Rzs = 0 ohms. This might be really bad and we
 //  may need to actually measure these values!
-#define STEP_RESISTANCE 196.08f
-#define FSV 255
-#define R_FS 0.0f
-#define R_ZS 0.0f
+#define MCP_STEP_RESISTANCE 196.08f
+#define MCP_FSV 255
+#define MCP_R_FS 0
+#define MCP_R_ZS 0
+#define MCP_R_MAX 50000
 
 /* MCP41HVX1 SPI Wiper Command Bytes */
 typedef enum
