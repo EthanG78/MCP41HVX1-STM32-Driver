@@ -42,15 +42,17 @@ typedef struct
 
     // 16 bit pin number of the chip select GPIO pin (active low)
     unsigned short csPin;
-
 } MCP41HVX1;
 
 HAL_StatusTypeDef MCP41HVX1_Init (MCP41HVX1 *MCP41HVX1,
                                   SPI_HandleTypeDef *spiHandle,
                                   GPIO_TypeDef *csPort,
                                   unsigned short csPin);
+float MCP41HVX1_To_Resistance (uint8_t code);
+uint8_t MCP41HVX1_To_Code (float resistance);
 HAL_StatusTypeDef MCP41HVX1_Move_Wiper (MCP41HVX1 *mcp, MCP41HVX1_Wiper_Command cmd);
 HAL_StatusTypeDef MCP41HVX1_Set_Resistance (MCP41HVX1 *mcp, float resistance);
+HAL_StatusTypeDef MCP41HVX1_Set_Resistance_Code (MCP41HVX1 *mcp, uint8_t code);
 HAL_StatusTypeDef MCP41HVX1_Get_Resistance (MCP41HVX1 *mcp, float *resistance);
 HAL_StatusTypeDef MCP41HVX1_Startup (MCP41HVX1 *mcp);
 HAL_StatusTypeDef MCP41HVX1_Shutdown (MCP41HVX1 *mcp);
